@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment {
+        DOCKER_REGISTRY = "your.registry.com"  // Set your registry URL
+        IMAGE_NAME = "your-image"
+        IMAGE_TAG = "latest"
+    }
 
   stages {
       stage('Build Artifact') {
@@ -33,14 +38,30 @@ pipeline {
               
       //       }
       //   } 
-      stage('Docker Login & Pull') {
-              steps {
-                  withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'ani0904071', passwordVariable: 'Time2Play9!')]) {
-                      sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                      sh 'docker pull nginx:latest'
-                  }
-              }
-          }
+      stage('Login to Docker Registry') {
+            steps {
+                // Authenticate to Docker registry
+                withDockerRegistry([credentialsId: 'docker-hub', url: ""]) {
+                    echo "Logged into Docker registry successfully."
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image
+                    sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Push Docker image to registry
+                    sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
+                }
+            }
+        }
     
       
     }
