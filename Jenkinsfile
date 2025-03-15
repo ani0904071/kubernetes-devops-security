@@ -46,22 +46,22 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Build Docker image
-                    sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
-                }
-            }
-        }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    // Push Docker image to registry
-                    sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
-                }
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             // Build Docker image
+        //             sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+        //         }
+        //     }
+        // }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script {
+        //             // Push Docker image to registry
+        //             sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
+        //         }
+        //     }
+        // }
     
       
     }
