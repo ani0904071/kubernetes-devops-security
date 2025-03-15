@@ -54,14 +54,14 @@ pipeline {
                 }
             }
         }
-        // stage('Push Docker Image') {
-        //     steps {
-        //         script {
-        //             // Push Docker image to registry
-        //             sh 'docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG'
-        //         }
-        //     }
-        // }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Push Docker image to registry
+                    sh 'docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG'
+                }
+            }
+        }
     
       
     }
