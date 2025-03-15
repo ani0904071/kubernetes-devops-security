@@ -37,7 +37,7 @@ pipeline {
               }
               
             }
-      //   } 
+          } 
       // stage('Login to Docker Registry') {
       //       steps {
       //           // Authenticate to Docker registry
