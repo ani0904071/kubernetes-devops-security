@@ -67,6 +67,23 @@
 			        </execution>
 			    </executions>
 			</plugin>
+			<plugin>
+		            <groupId>org.owasp</groupId>
+		            <artifactId>dependency-check-maven</artifactId>
+		            <version>8.4.0</version>
+<!-- 		            <executions>
+		                <execution>
+		                    <goals>
+		                        <goal>check</goal>
+		                    </goals>
+		                </execution>
+		            </executions> -->
+		            <configuration>
+		                <format>ALL</format>  <!-- Generates all formats -->
+<!-- 		                <outputDirectory>${project.build.directory}</outputDirectory> -->
+				 <failBuildOnCVSS>9</failBuildOnCVSS>    
+		            </configuration>
+		        </plugin>
 		</plugins>
 	</build>
 
