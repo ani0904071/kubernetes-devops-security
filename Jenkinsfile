@@ -28,16 +28,16 @@ pipeline {
             }
         }
 
-      // stage('Vulnerability Scans - Docker') {
-      //       steps {
-      //           sh "mvn dependency-check:check"               
-      //       }
-      //        post {
-      //         always {
-      //           dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-      //         }
-      //       }
-      //     }
+      stage('Vulnerability Scans - Docker') {
+            steps {
+                sh "mvn dependency-check:check"               
+            }
+            //  post {
+            //   always {
+            //     dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+            //   }
+            // }
+          }
 
       stage('Docker build and Push') {
             steps {
