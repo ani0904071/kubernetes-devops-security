@@ -81,7 +81,7 @@
 		            <configuration>
 		                <format>ALL</format>  <!-- Generates all formats -->
 <!-- 		                <outputDirectory>${project.build.directory}</outputDirectory> -->
-				 <failBuildOnCVSS>9</failBuildOnCVSS>    
+				 <failBuildOnCVSS>5</failBuildOnCVSS>    
 		            </configuration>
 		        </plugin>
 		</plugins>
